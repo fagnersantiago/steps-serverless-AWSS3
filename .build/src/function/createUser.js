@@ -49,18 +49,20 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                         .query({
                         TableName: "users",
                         KeyConditionExpression: "id =:id",
-                        ExpressionAttributeNames: {
+                        ExpressionAttributeValues: {
                             ":id": id,
                         },
                     })
                         .promise()];
             case 1:
                 response = _c.sent();
+                console.log("OPA!!");
                 if (!!((_b = response.Items) === null || _b === void 0 ? void 0 : _b[0])) return [3 /*break*/, 3];
                 return [4 /*yield*/, dynamodbClient_1.document
                         .put({
                         TableName: "users",
                         Item: {
+                            id: id,
                             name: name,
                             email: email,
                         },
@@ -70,11 +72,7 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 _c.sent();
                 return [2 /*return*/, {
                         statusCode: 201,
-                        body: JSON.stringify({
-                            message: "User created",
-                            name: response[0].name,
-                            email: response[0].email,
-                        }),
+                        body: JSON.stringify(response),
                     }];
             case 3: return [2 /*return*/];
         }

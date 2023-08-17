@@ -14,17 +14,19 @@ export const handler = async (event: APIGatewayProxyEvent) => {
     .query({
       TableName: "users",
       KeyConditionExpression: "id =:id",
-      ExpressionAttributeNames: {
+      ExpressionAttributeValues: {
         ":id": id,
       },
     })
     .promise();
+  console.log("OPA!!");
 
   if (!response.Items?.[0]) {
     await document
       .put({
         TableName: "users",
         Item: {
+          id,
           name,
           email,
         },
@@ -33,11 +35,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 
     return {
       statusCode: 201,
-      body: JSON.stringify({
-        message: "User created",
-        name: response[0].name,
-        email: response[0].email,
-      }),
+      body: JSON.stringify(response),
     };
   }
 };

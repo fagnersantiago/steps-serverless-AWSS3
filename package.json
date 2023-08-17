@@ -9,7 +9,7 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.119",
     "aws-sdk": "^2.1438.0",
-    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-dynamodb-local": "https://github.com/eheyder/serverless-dynamodb-local.git#v1",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6"
   },
