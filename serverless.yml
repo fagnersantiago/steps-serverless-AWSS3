@@ -1,0 +1,50 @@
+app: serverless-revision
+service: serverless-revision
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  environment:
+    DYNAMODB_ENDPOINT: http://localhost:8000
+
+functions:
+  createUser:
+    handler: src/function/createUser.handler
+    events:
+      - httpApi:
+          path: /create
+          method: post
+    timeout: 60
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  dynamodb:
+    stages:
+      - dev
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+
+resources:
+  Resources:
+    users:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: users
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
