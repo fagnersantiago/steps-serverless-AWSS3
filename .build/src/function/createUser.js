@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 var dynamodbClient_1 = require("../utils/dynamodbClient");
 var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, id, name, email, response;
+    var _a, id, name, email, response, user;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -56,8 +56,8 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                         .promise()];
             case 1:
                 response = _c.sent();
-                console.log("OPA!!");
-                if (!!((_b = response.Items) === null || _b === void 0 ? void 0 : _b[0])) return [3 /*break*/, 3];
+                user = (_b = response.Items) === null || _b === void 0 ? void 0 : _b[0];
+                if (!!user) return [3 /*break*/, 3];
                 return [4 /*yield*/, dynamodbClient_1.document
                         .put({
                         TableName: "users",
@@ -72,9 +72,15 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 _c.sent();
                 return [2 /*return*/, {
                         statusCode: 201,
-                        body: JSON.stringify(response),
+                        body: JSON.stringify({ id: id, name: name, email: email }),
                     }];
-            case 3: return [2 /*return*/];
+            case 3: return [2 /*return*/, {
+                    statusCode: 400,
+                    body: JSON.stringify({
+                        message: "User already exists",
+                        user: user,
+                    }),
+                }];
         }
     });
 }); };

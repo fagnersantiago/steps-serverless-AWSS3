@@ -3,6 +3,8 @@ import { DynamoDB } from "aws-sdk";
 const Opitons = {
   region: process.env.IS_OFFLINE,
   endpoint: "http://localhost:8000",
+  accessKey: "fakeMyKeyId",
+  secretKey: "fakeSecretAccessKey",
 };
 
 const isOffline = () => {

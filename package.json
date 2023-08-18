@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npx serverless offline"
+    "dev": "npx serverless offline",
+    "dynamodb:start": "npx serveless dynamodb start",
+    "dynamodb:install": "npx serveless dynamodb install",
+    "deploy": "npx serverless deploy -v"
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.119",

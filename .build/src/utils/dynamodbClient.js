@@ -5,6 +5,8 @@ var aws_sdk_1 = require("aws-sdk");
 var Opitons = {
     region: process.env.IS_OFFLINE,
     endpoint: "http://localhost:8000",
+    accessKey: "fakeMyKeyId",
+    secretKey: "fakeSecretAccessKey",
 };
 var isOffline = function () {
     return process.env.IS_OFFLINE;

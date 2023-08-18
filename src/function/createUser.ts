@@ -19,9 +19,10 @@ export const handler = async (event: APIGatewayProxyEvent) => {
       },
     })
     .promise();
-  console.log("OPA!!");
 
-  if (!response.Items?.[0]) {
+  let user = response.Items?.[0] as IUserDTO;
+
+  if (!user) {
     await document
       .put({
         TableName: "users",
@@ -35,7 +36,15 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 
     return {
       statusCode: 201,
-      body: JSON.stringify(response),
+      body: JSON.stringify({ id, name, email }),
+    };
+  } else {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "User already exists",
+        user,
+      }),
     };
   }
 };
