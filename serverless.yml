@@ -16,13 +16,6 @@ functions:
       - httpApi:
           path: /create
           method: post
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-          - dynamodb:Query
-          - dynamodb:PutItem
-        Resource:
-          - "*"
     timeout: 60
 
 plugins:
