@@ -36,14 +36,17 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 
     return {
       statusCode: 201,
-      body: JSON.stringify({ id, name, email }),
+      body: JSON.stringify({
+        id: id,
+        name: name,
+        email: email,
+      }),
     };
   } else {
     return {
       statusCode: 400,
       body: JSON.stringify({
         message: "User already exists",
-        user,
       }),
     };
   }
