@@ -37,9 +37,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
     return {
       statusCode: 201,
       body: JSON.stringify({
-        id: id,
-        name: name,
-        email: email,
+        message: "user created",
       }),
     };
   } else {
