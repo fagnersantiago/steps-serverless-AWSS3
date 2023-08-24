@@ -1,7 +1,7 @@
 name: SERVERLESS CI
 
 on:
-  pull_request:
+  push:
     branches:
       - main
       - master
