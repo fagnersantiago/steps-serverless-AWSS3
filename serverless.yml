@@ -26,11 +26,11 @@ functions:
     timeout: 30
 
   deleteUser:
-    handler: src/function/createUser.handler
+    handler: src/function/deleteUser.handler
     events:
       - httpApi:
-          path: /create
-          method: post
+          path: /delete
+          method: delete
     timeout: 30
 
 plugins:
