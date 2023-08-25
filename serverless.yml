@@ -25,6 +25,14 @@ functions:
           method: post
     timeout: 30
 
+  deleteUser:
+    handler: src/function/createUser.handler
+    events:
+      - httpApi:
+          path: /create
+          method: post
+    timeout: 30
+
 plugins:
   - serverless-plugin-typescript
   - serverless-dynamodb-local
