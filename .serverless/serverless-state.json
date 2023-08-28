@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-revision/dev/1693232256740-2023-08-28T14:17:36.740Z/serverless-revision.zip"
+                "S3Key": "serverless/serverless-revision/dev/1693234131734-2023-08-28T14:48:51.734Z/serverless-revision.zip"
               },
               "Handler": "src/function/createUser.handler",
               "Runtime": "nodejs16.x",
@@ -227,7 +227,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-revision/dev/1693232256740-2023-08-28T14:17:36.740Z/serverless-revision.zip"
+                "S3Key": "serverless/serverless-revision/dev/1693234131734-2023-08-28T14:48:51.734Z/serverless-revision.zip"
               },
               "Handler": "src/function/deleteUser.handler",
               "Runtime": "nodejs16.x",
@@ -245,24 +245,24 @@
               "DeleteUserLogGroup"
             ]
           },
-          "CreateUserLambdaVersionuep0sPoP53eBIhGWzcVQByb2Tt090yPtzsYHhGyAvbc": {
+          "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUserLambdaFunction"
               },
-              "CodeSha256": "67yoNNkBF2wiEIkLqZei+NYlbWoB+b+YOPBo+dNgLbI="
+              "CodeSha256": "m06Ts5z6CsL5mrILVyS1hPhLLHorbIARwVixvKEmnGk="
             }
           },
-          "DeleteUserLambdaVersionMrD2lPdgc5Qvqi3YyucaFQ6dQDsPl0orXeEpHYZeE": {
+          "DeleteUserLambdaVersionfbD4sdMlpNnQqWAjHGf0zOQ9Bf0Ajzjyp0WcQWiGjHo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteUserLambdaFunction"
               },
-              "CodeSha256": "67yoNNkBF2wiEIkLqZei+NYlbWoB+b+YOPBo+dNgLbI="
+              "CodeSha256": "m06Ts5z6CsL5mrILVyS1hPhLLHorbIARwVixvKEmnGk="
             }
           },
           "HttpApi": {
@@ -464,7 +464,7 @@
           "CreateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateUserLambdaVersionuep0sPoP53eBIhGWzcVQByb2Tt090yPtzsYHhGyAvbc"
+              "Ref": "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c"
             },
             "Export": {
               "Name": "sls-serverless-revision-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -473,7 +473,7 @@
           "DeleteUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteUserLambdaVersionMrD2lPdgc5Qvqi3YyucaFQ6dQDsPl0orXeEpHYZeE"
+              "Ref": "DeleteUserLambdaVersionfbD4sdMlpNnQqWAjHGf0zOQ9Bf0Ajzjyp0WcQWiGjHo"
             },
             "Export": {
               "Name": "sls-serverless-revision-dev-DeleteUserLambdaFunctionQualifiedArn"
@@ -643,7 +643,7 @@
         "memory": 1024,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "CreateUserLambdaVersionuep0sPoP53eBIhGWzcVQByb2Tt090yPtzsYHhGyAvbc"
+        "versionLogicalId": "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c"
       },
       "deleteUser": {
         "handler": "src/function/deleteUser.handler",
@@ -669,7 +669,7 @@
         "memory": 1024,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "DeleteUserLambdaVersionMrD2lPdgc5Qvqi3YyucaFQ6dQDsPl0orXeEpHYZeE"
+        "versionLogicalId": "DeleteUserLambdaVersionfbD4sdMlpNnQqWAjHGf0zOQ9Bf0Ajzjyp0WcQWiGjHo"
       }
     },
     "resources": {
@@ -727,7 +727,7 @@
     "artifact": "C:\\Users\\fagne\\Documents\\serverless-revision\\.build\\.serverless\\serverless-revision.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-revision/dev/1693232256740-2023-08-28T14:17:36.740Z",
+    "artifactDirectoryName": "serverless/serverless-revision/dev/1693234131734-2023-08-28T14:48:51.734Z",
     "artifact": "serverless-revision.zip"
   }
 }
