@@ -5,22 +5,17 @@ export const handler = async (event: APIGatewayProxyEvent) => {
   const params = {
     TableName: "users",
     Key: {
-      primaryKey: { S: "id" },
+      S: "id",
     },
   };
 
-  await document.delete(params, (error, data) => {
-    if (!params.Key) {
-      return {
-        error: error,
-        statusCode: 404,
-        message: "User Not Found",
-      };
-    } else {
-      return {
-        statusCode: 200,
-        data: data,
-      };
-    }
-  });
+  try {
+    await document.delete(params).promise();
+  } catch (error) {
+    console.error(error);
+  }
+
+  return {
+    statusCode: 200,
+  };
 };

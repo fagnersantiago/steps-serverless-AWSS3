@@ -182,7 +182,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-revision/dev/1692984923604-2023-08-25T17:35:23.604Z/serverless-revision.zip"
+          "S3Key": "serverless/serverless-revision/dev/1693232256740-2023-08-28T14:17:36.740Z/serverless-revision.zip"
         },
         "Handler": "src/function/createUser.handler",
         "Runtime": "nodejs16.x",
@@ -207,7 +207,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-revision/dev/1692984923604-2023-08-25T17:35:23.604Z/serverless-revision.zip"
+          "S3Key": "serverless/serverless-revision/dev/1693232256740-2023-08-28T14:17:36.740Z/serverless-revision.zip"
         },
         "Handler": "src/function/deleteUser.handler",
         "Runtime": "nodejs16.x",
@@ -225,24 +225,24 @@
         "DeleteUserLogGroup"
       ]
     },
-    "CreateUserLambdaVersionsxZJXIh2AvaMIX45oK1H9oZGmA2XrbG3HcnrqjckC8": {
+    "CreateUserLambdaVersionuep0sPoP53eBIhGWzcVQByb2Tt090yPtzsYHhGyAvbc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "rmpNBiOlBL5B7PHqohGlu0R4wIoQQRsA8G9/B1fYUGg="
+        "CodeSha256": "67yoNNkBF2wiEIkLqZei+NYlbWoB+b+YOPBo+dNgLbI="
       }
     },
-    "DeleteUserLambdaVersion6fseP3BL1scU9E0zfORN8htPvMTqGwTrfDawEV3sSI": {
+    "DeleteUserLambdaVersionMrD2lPdgc5Qvqi3YyucaFQ6dQDsPl0orXeEpHYZeE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeleteUserLambdaFunction"
         },
-        "CodeSha256": "rmpNBiOlBL5B7PHqohGlu0R4wIoQQRsA8G9/B1fYUGg="
+        "CodeSha256": "67yoNNkBF2wiEIkLqZei+NYlbWoB+b+YOPBo+dNgLbI="
       }
     },
     "HttpApi": {
@@ -394,13 +394,13 @@
         "TimeoutInMillis": 30000
       }
     },
-    "HttpApiRouteDeleteDelete": {
+    "HttpApiRouteDeleteIdVar": {
       "Type": "AWS::ApiGatewayV2::Route",
       "Properties": {
         "ApiId": {
           "Ref": "HttpApi"
         },
-        "RouteKey": "DELETE /delete",
+        "RouteKey": "DELETE /{id}",
         "Target": {
           "Fn::Join": [
             "/",
@@ -450,7 +450,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersionsxZJXIh2AvaMIX45oK1H9oZGmA2XrbG3HcnrqjckC8"
+        "Ref": "CreateUserLambdaVersionuep0sPoP53eBIhGWzcVQByb2Tt090yPtzsYHhGyAvbc"
       },
       "Export": {
         "Name": "sls-serverless-revision-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -459,7 +459,7 @@
     "DeleteUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeleteUserLambdaVersion6fseP3BL1scU9E0zfORN8htPvMTqGwTrfDawEV3sSI"
+        "Ref": "DeleteUserLambdaVersionMrD2lPdgc5Qvqi3YyucaFQ6dQDsPl0orXeEpHYZeE"
       },
       "Export": {
         "Name": "sls-serverless-revision-dev-DeleteUserLambdaFunctionQualifiedArn"
