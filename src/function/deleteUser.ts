@@ -11,6 +11,12 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 
   try {
     await document.delete(params).promise();
+    if (!params.Key) {
+      return {
+        message: "User not found",
+        statusCode: 404,
+      };
+    }
   } catch (error) {
     console.error(error);
   }

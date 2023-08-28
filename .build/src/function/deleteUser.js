@@ -55,6 +55,12 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 return [4 /*yield*/, dynamodbClient_1.document.delete(params).promise()];
             case 2:
                 _a.sent();
+                if (!params.Key) {
+                    return [2 /*return*/, {
+                            message: "User not found",
+                            statusCode: 404,
+                        }];
+                }
                 return [3 /*break*/, 4];
             case 3:
                 error_1 = _a.sent();
