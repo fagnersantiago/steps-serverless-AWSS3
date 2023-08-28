@@ -39,34 +39,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 var dynamodbClient_1 = require("../utils/dynamodbClient");
 var handler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
-    var params;
+    var params, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 params = {
                     TableName: "users",
                     Key: {
-                        primaryKey: { S: "id" },
+                        S: "id",
                     },
                 };
-                return [4 /*yield*/, dynamodbClient_1.document.delete(params, function (error, data) {
-                        if (!params.Key) {
-                            return {
-                                error: error,
-                                statusCode: 404,
-                                message: "User Not Found",
-                            };
-                        }
-                        else {
-                            return {
-                                statusCode: 200,
-                                data: data,
-                            };
-                        }
-                    })];
+                _a.label = 1;
             case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, dynamodbClient_1.document.delete(params).promise()];
+            case 2:
                 _a.sent();
-                return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 3:
+                error_1 = _a.sent();
+                console.error(error_1);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/, {
+                    statusCode: 200,
+                }];
         }
     });
 }); };
