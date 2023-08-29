@@ -31,7 +31,7 @@ functions:
       - httpApi:
           path: /{id}
           method: delete
-    timeout: 30
+    timeout: 120
 
 plugins:
   - serverless-plugin-typescript
