@@ -46,7 +46,7 @@ var handler = function (event) { return __awaiter(void 0, void 0, void 0, functi
                 params = {
                     TableName: "users",
                     Key: {
-                        S: "id",
+                        id: "id",
                     },
                 };
                 _a.label = 1;

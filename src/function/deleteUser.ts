@@ -5,7 +5,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
   const params = {
     TableName: "users",
     Key: {
-      S: "id",
+      id: "id",
     },
   };
 
