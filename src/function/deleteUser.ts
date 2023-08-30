@@ -2,26 +2,43 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { document } from "../utils/dynamodbClient";
 
 export const handler = async (event: APIGatewayProxyEvent) => {
-  const params = {
-    TableName: "users",
-    Key: {
-      id: "id",
-    },
-  };
+  const { id }: any = event.pathParameters;
 
   try {
-    await document.delete(params).promise();
-    if (!params.Key) {
+    const userExists = await document
+      .get({
+        TableName: "users",
+        Key: {
+          id,
+        },
+      })
+      .promise();
+
+    if (!userExists.Item) {
       return {
-        message: "User not found",
         statusCode: 404,
+        body: JSON.stringify({ message: "User not Found" }),
       };
     }
+
+    await document
+      .delete({
+        TableName: "users",
+        Key: {
+          id,
+        },
+      })
+      .promise();
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "User deleted" }),
+    };
   } catch (error) {
     console.error(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "An error occurred" }),
+    };
   }
-
-  return {
-    statusCode: 200,
-  };
 };

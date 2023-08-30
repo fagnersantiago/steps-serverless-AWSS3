@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-revision/dev/1693235019091-2023-08-28T15:03:39.091Z/serverless-revision.zip"
+                "S3Key": "serverless/serverless-revision/dev/1693408509617-2023-08-30T15:15:09.617Z/serverless-revision.zip"
               },
               "Handler": "src/function/createUser.handler",
               "Runtime": "nodejs16.x",
@@ -227,7 +227,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-revision/dev/1693235019091-2023-08-28T15:03:39.091Z/serverless-revision.zip"
+                "S3Key": "serverless/serverless-revision/dev/1693408509617-2023-08-30T15:15:09.617Z/serverless-revision.zip"
               },
               "Handler": "src/function/deleteUser.handler",
               "Runtime": "nodejs16.x",
@@ -245,24 +245,24 @@
               "DeleteUserLogGroup"
             ]
           },
-          "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c": {
+          "CreateUserLambdaVersionz8fXXcanvm2pkJEt5T0716L5RGpimr3Vh7n88WSxBXg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUserLambdaFunction"
               },
-              "CodeSha256": "m06Ts5z6CsL5mrILVyS1hPhLLHorbIARwVixvKEmnGk="
+              "CodeSha256": "UJ3y71gSoTTNz+abYKg34qcZpWBYXItxqpaQQsKHkfw="
             }
           },
-          "DeleteUserLambdaVersionXzZo5ALvqQJuFocQ9V8s8oTtifPKLleQQAbQwy3CMHo": {
+          "DeleteUserLambdaVersionRknvyBAQhrHmxS1G5U5aqJVNxVVv0ZFDDpkW8VqHfM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteUserLambdaFunction"
               },
-              "CodeSha256": "m06Ts5z6CsL5mrILVyS1hPhLLHorbIARwVixvKEmnGk="
+              "CodeSha256": "UJ3y71gSoTTNz+abYKg34qcZpWBYXItxqpaQQsKHkfw="
             }
           },
           "HttpApi": {
@@ -408,13 +408,13 @@
               "TimeoutInMillis": 30000
             }
           },
-          "HttpApiRouteDeleteIdVar": {
+          "HttpApiRouteDeleteDeleteuserIdVar": {
             "Type": "AWS::ApiGatewayV2::Route",
             "Properties": {
               "ApiId": {
                 "Ref": "HttpApi"
               },
-              "RouteKey": "DELETE /{id}",
+              "RouteKey": "DELETE /deleteUser/{id}",
               "Target": {
                 "Fn::Join": [
                   "/",
@@ -464,7 +464,7 @@
           "CreateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c"
+              "Ref": "CreateUserLambdaVersionz8fXXcanvm2pkJEt5T0716L5RGpimr3Vh7n88WSxBXg"
             },
             "Export": {
               "Name": "sls-serverless-revision-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -473,7 +473,7 @@
           "DeleteUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteUserLambdaVersionXzZo5ALvqQJuFocQ9V8s8oTtifPKLleQQAbQwy3CMHo"
+              "Ref": "DeleteUserLambdaVersionRknvyBAQhrHmxS1G5U5aqJVNxVVv0ZFDDpkW8VqHfM"
             },
             "Export": {
               "Name": "sls-serverless-revision-dev-DeleteUserLambdaFunctionQualifiedArn"
@@ -643,18 +643,18 @@
         "memory": 1024,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "CreateUserLambdaVersionVAoefsQmvrHcj249eettPrsVrUVhozOd2dwYcMH3c"
+        "versionLogicalId": "CreateUserLambdaVersionz8fXXcanvm2pkJEt5T0716L5RGpimr3Vh7n88WSxBXg"
       },
       "deleteUser": {
         "handler": "src/function/deleteUser.handler",
         "events": [
           {
             "httpApi": {
-              "path": "/{id}",
+              "path": "/deleteUser/{id}",
               "method": "delete"
             },
             "resolvedMethod": "DELETE",
-            "resolvedPath": "/{id}"
+            "resolvedPath": "/deleteUser/{id}"
           }
         ],
         "timeout": 120,
@@ -669,7 +669,7 @@
         "memory": 1024,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "DeleteUserLambdaVersionXzZo5ALvqQJuFocQ9V8s8oTtifPKLleQQAbQwy3CMHo"
+        "versionLogicalId": "DeleteUserLambdaVersionRknvyBAQhrHmxS1G5U5aqJVNxVVv0ZFDDpkW8VqHfM"
       }
     },
     "resources": {
@@ -727,7 +727,7 @@
     "artifact": "C:\\Users\\fagne\\Documents\\serverless-revision\\.build\\.serverless\\serverless-revision.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-revision/dev/1693235019091-2023-08-28T15:03:39.091Z",
+    "artifactDirectoryName": "serverless/serverless-revision/dev/1693408509617-2023-08-30T15:15:09.617Z",
     "artifact": "serverless-revision.zip"
   }
 }
