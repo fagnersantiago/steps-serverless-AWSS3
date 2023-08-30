@@ -29,7 +29,7 @@ functions:
     handler: src/function/deleteUser.handler
     events:
       - httpApi:
-          path: /{id}
+          path: /deleteUser/{id}
           method: delete
     timeout: 120
 
