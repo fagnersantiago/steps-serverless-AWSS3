@@ -31,7 +31,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
       .promise();
 
     return {
-      statusCode: 200,
+      statusCode: 201,
       body: JSON.stringify({ message: "User deleted" }),
     };
   } catch (error) {
